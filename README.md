@@ -18,37 +18,14 @@ This project demonstrates how to clean and preprocess a **Customer Call List** d
 ---
 
 
-import pandas as pd
-df = pd.read_excel("Customer Call List.xlsx")
-df.head()
-df
-df.drop_duplicates(inplace=True)
-df
-df.drop(columns="Not_Useful_Column",inplace=True)
-df
-df.drop(columns="Not_Useful_Column",inplace=True)
-df
-df["Last_Name"]=df["Last_Name"].str.strip("/")
-df
-df["Last_Name"]=df["Last_Name"].str.strip("._")
-df
-df["Phone_Number"] = df["Phone_Number"].astype(str).str.replace(r"\D", "", regex=True)
-df["Phone_Number"] = df["Phone_Number"].apply(
-    lambda x: f"{x[0:3]}-{x[3:6]}-{x[6:10]}" if len(x) == 10 else x
-)
-df
-df[['Street', 'Country', 'Zip']] = df['Address'].str.split(pat=',', n=2, expand=True)
-df
-df["Paying Customer"]= df["Paying Customer"].str.replace("Yes","Y")
-df["Paying Customer"]= df["Paying Customer"].str.replace("No","N")
-df["Do_Not_Contact"]= df["Do_Not_Contact"].str.replace("Yes","Y")
-df["Do_Not_Contact"]= df["Do_Not_Contact"].str.replace("No","N")
-df
-df = df.replace("N/a","")
-df
-df = df.fillna("")
-df
-df = df.drop(columns="Address")
-df
-df.to_csv("Cleaned_customer_data.csv",index=False)
+## 📁 Input File
+
+The script expects an Excel file named:
+Customer Call List.xlsx
+
+---
+
+## 🧰 Libraries Used
+
+- **pandas**
 
